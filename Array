@@ -38,25 +38,79 @@ void reverse_arr(int arr[],int n){
     }
     return;
 }
+//left rotate array by d number of times
 
+void reverse_arr(int arr[],  int l,int r){
+    while(l<r){
+        int temp=arr[l];
+        arr[l]=arr[r];
+        arr[r]=temp;
+        l++;r--;
+    }
+    //  for (int i=0;i<n;i++) {
+    //     cout << arr[i]<< " ";
+    // }
+    return;
+}
+void left_rotate_arr(int arr[],int n,int d){
+// d =kitna baar rorate krna hai
+d=d%n;
+//left rotate by d
+reverse_arr(arr,0,d-1);
+   reverse_arr(arr,d,n-1);
+   reverse_arr(arr,0,n-1);
+
+
+//for right rotate by d elements
+//reverse_arr(arr,0,n-1);
+// reverse_arr(arr,0,d-1);
+//    reverse_arr(arr,d,n-1);
+
+
+     for (int i=0;i<n;i++) {
+         cout << arr[i]<< " ";
+     }
+}
+//leaders in array
+gfg
+  vector<int> leaders(int arr[], int n){
+        // Code here
+        vector<int> ans;
+        long curr_ldr=arr[n-1];
+         ans.push_back(curr_ldr);
+        for(int i=n-2;i>=0;i--){
+            if(arr[i]>=curr_ldr){
+                curr_ldr=arr[i];
+                ans.push_back(curr_ldr);
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+
+// maxmimum difference
+int maxmimum_diff(int arr[],int n){
+    int res=arr[1]-arr[0];
+    int mini=arr[0];
+    for(int j=1;j<n;j++){
+        int diff=arr[j]-mini;
+        res=max(res,diff);
+        mini=min(mini,arr[j]);
+    }
+    return res;
+}
 int main() {
-    // Generate an array of integers from 1 to 10
-    // vector<int> myArray;
     int myArray[5];
-    int a;
     for (int i = 0; i < 5; i++) {
     //   cin>>a;
     //   myArray.push_back(a);
     cin>>myArray[i];
     }
-    int x;
-    cout<<"Enter the array u want to delte";
-    cin>>x;
     int n=sizeof(myArray)/(sizeof(myArray[0]));
-    int ans=arrdel( myArray,n,x);
-    cout<<"Delted Array"<<ans<<endl;
-    for (int num : myArray) {
-        cout << num << " ";
-    }
+   left_rotate_arr(myArray,n,2);
+    // cout<<"Delted Array"<<ans<<endl;
+   
     return 0;
+    call_function _name( myArray,n,x);
+   
 }
