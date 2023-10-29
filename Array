@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int arrdel(int myArray[],int n,int x){
+    int i;
+    for(int i=0;i<n;i++){
+        if(myArray[i]==x){
+            break;
+        }
+    }
+        if(i==n) return n;
+        for(int j=i;j<n-1;j++){
+            myArray[j]=myArray[j+1];
+        }
+        return n-1;
+    }
+
+int main() {
+    // Generate an array of integers from 1 to 10
+    // vector<int> myArray;
+    int myArray[5];
+    int a;
+    for (int i = 0; i < 5; i++) {
+    //   cin>>a;
+    //   myArray.push_back(a);
+    cin>>myArray[i];
+    }
+    int x;
+    cout<<"Enter the array u want to delte";
+    cin>>x;
+    int n=sizeof(myArray)/(sizeof(myArray[0]));
+    int ans=arrdel( myArray,n,x);
+    cout<<"Delted Array"<<ans<<endl;
+    for (int num : myArray) {
+        cout << num << " ";
+    }
+    return 0;
+}
