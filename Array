@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+//array deletion
 int arrdel(int myArray[],int n,int x){
     int i;
     for(int i=0;i<n;i++){
@@ -14,6 +15,29 @@ int arrdel(int myArray[],int n,int x){
         }
         return n-1;
     }
+//is sroted array
+bool is_sorted(int arr[],int n){
+    for(int i=0;i<n;i++){
+        if(arr[i]>arr[i+1]){
+            return false;
+        }
+    }
+    return true;
+}
+// reverse the array
+void reverse_arr(int arr[],int n){
+    int l=0,r=n-1;
+    while(l<r){
+        int temp=arr[l];
+        arr[l]=arr[r];
+        arr[r]=temp;
+        l++;r--;
+    }
+     for (int i=0;i<n;i++) {
+        cout << arr[i]<< " ";
+    }
+    return;
+}
 
 int main() {
     // Generate an array of integers from 1 to 10
